@@ -7,3 +7,4 @@
 //   })
 //   nuxtApp.provide('api', axiosInstance)
 // })
+export default defineNuxtPlugin((nuxtApp) => {})
