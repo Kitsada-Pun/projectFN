@@ -97,7 +97,7 @@ import TabMenu from 'primevue/tabmenu'
 import TieredMenu from 'primevue/tieredmenu'
 
 // * Chart
-// import Chart from 'primevue/chart'; // install chart.js dependency.
+import Chart from 'primevue/chart' // install chart.js dependency.
 
 // * Messages
 import Message from 'primevue/message'
@@ -225,7 +225,7 @@ export default defineNuxtPlugin(nuxtApp => {
   nuxtApp.vueApp.component('TieredMenu', TieredMenu)
 
   // * Chart
-  // nuxtApp.vueApp.component('Chart', Chart) // install chart.js dependency.
+  nuxtApp.vueApp.component('Chart', Chart) // install chart.js dependency.
 
   // * Messages
   nuxtApp.vueApp.component('Message', Message)

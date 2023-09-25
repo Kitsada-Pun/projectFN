@@ -10,7 +10,9 @@
       }"
     >
       <template #start>
-        Smart Thermometer
+        <div class="text-2xl font-bold line-height-1">
+          Smart Thermometer
+        </div>
       </template>
       <!-- <template #end>
         After

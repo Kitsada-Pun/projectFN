@@ -64,6 +64,27 @@ client.on("message", function (topic, message) {
   }
 });
 
-app.listen(3009, () => {
-  console.log(`Example app listening on port ${3009}`);
+app.get("/thermometer/time", async (req, res) => {
+  try {
+    const result = await pg.raw(`SELECT 
+      DATE_TRUNC('hour', created_at AT TIME ZONE 'Asia/Bangkok') AS rounded_time,
+      AVG(temperature) AS avg_temperature,
+      AVG(humidity) AS avg_humidity
+      FROM thermometer
+      GROUP BY rounded_time
+      ORDER BY rounded_time DESC
+      LIMIT 48;`);
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.listen(7010, () => {
+  console.log(`Example app listening on port ${7010}`);
 });

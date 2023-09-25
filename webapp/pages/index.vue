@@ -10,12 +10,20 @@
           เทอร์โมมิเตอร์อัจฉริยะเป็นอุปกรณ์ล้ำสมัยที่ออกแบบมาเพื่อวัดอุณหภูมิและความชื้นที่แม่นยำสำหรับการใช้งานต่างๆ ไม่ว่าคุณจะต้องการตรวจสอบสภาพแวดล้อมในบ้าน สำนักงาน หรือห้องปฏิบัติการ เทอร์โมมิเตอร์ขั้นสูงนี้ก็ครอบคลุมทุกอย่าง
         </p>
 
-        <NuxtLink to="/sign-in">
+        <!-- <NuxtLink to="/sign-in">
           <Button
             label="Sing In"
             icon="pi pi-user"
             type="button"
             class="mr-3 p-button-raised"
+          ></Button>
+        </NuxtLink> -->
+        <NuxtLink to="/app">
+          <Button
+            label="Dashboard"
+            type="button"
+            class="mr-3"
+            outlined
           ></Button>
         </NuxtLink>
         <!-- <Button label="Live Demo" type="button" class="p-button-outlined"></Button> -->

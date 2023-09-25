@@ -20,7 +20,7 @@
 
           <div class="flex align-items-center justify-content-between mb-6">
             <div class="flex align-items-center">
-              <Checkbox id="rememberme1" :binary="true" v-model="checked" class="mr-2"></Checkbox>
+              <Checkbox id="rememberme1" :binary="true" class="mr-2"></Checkbox>
               <label for="rememberme1">Remember me</label>
             </div>
             <a class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
