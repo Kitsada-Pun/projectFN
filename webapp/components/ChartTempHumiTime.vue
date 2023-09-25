@@ -1,5 +1,8 @@
 <template>
   <Card>
+    <template #title>
+      อุณหภูมิและความชื้นเฉลี่ยในแต่ละชั่วโมง
+    </template>
     <template #content>
       <Chart type="line" :data="chartData" :options="chartOptions" class="h-30rem" />
     </template>
@@ -24,7 +27,7 @@ export default {
     async setChartData() {
       let res = await this.$api.get('/thermometer/time')
       let data = res.data
-      console.log(data)
+      // console.log(data)
       // Extracting labels and data for the chart
       let labels = data.map(function (item) {
         let dateTime = new Date(item.rounded_time)
@@ -38,7 +41,7 @@ export default {
         // Get the day of month, from 1 to 31, the name of the method does look a little bit strange.
         // getHours(), getMinutes(), getSeconds(), getMilliseconds()
         // Get the corresponding time components.
-        console.log(dateTime.getHours())
+        // console.log(dateTime.getHours())
         return TimeString
       })
 
@@ -55,14 +58,14 @@ export default {
         labels,
         datasets: [
           {
-            label: 'Temperature',
+            label: 'อุณหภูมิ',
             data: temperatureData,
             borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 2,
             yAxisID: 'temperature',
           },
           {
-            label: 'Humidity',
+            label: 'ความชื้น',
             data: humidityData,
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 2,

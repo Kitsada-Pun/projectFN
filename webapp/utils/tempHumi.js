@@ -63,5 +63,5 @@ export const heatIndexLevel = (HI) => {
   } else if (HI >= 27) {
     return 'ควรระวัง'
   }
-  return ''
+  return '-'
 }

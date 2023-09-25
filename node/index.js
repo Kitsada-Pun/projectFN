@@ -80,6 +80,31 @@ app.get("/thermometer/time", async (req, res) => {
     res.sendStatus(500);
   }
 });
+app.get("/thermometer/day", async (req, res) => {
+  try {
+    const result = await pg.raw(`SELECT
+    DATE_TRUNC('day', created_at AT TIME ZONE 'Asia/Bangkok') AS rounded_day,
+    AVG(temperature) AS avg_temperature,
+    AVG(humidity) AS avg_humidity,
+    MAX(temperature) AS max_temperature,
+    MIN(temperature) AS min_temperature,
+    MAX(humidity) AS max_humidity,
+    MIN(humidity) AS min_humidity
+  FROM
+    thermometer
+  GROUP BY
+    rounded_day
+  ORDER BY
+    rounded_day DESC
+  LIMIT
+    45;
+  `);
+    res.send(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(500);
+  }
+});
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

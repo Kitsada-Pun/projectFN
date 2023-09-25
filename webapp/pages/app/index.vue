@@ -51,11 +51,12 @@
           </div>
         </div>
         <!-- <span class="text-green-500 font-medium">520  </span> -->
-        <span class="text-600">{{ heatIndexLevel || '-' }}</span>
+        <span class="text-600">{{ heatIndexLevel }}</span>
       </div>
     </div>
   </div>
-  <ChartTempHumiTime />
+  <ChartTempHumiTime class="mt-3" />
+  <ChartTempHumiDay class="mt-3" />
 </template>
 
 <script>
